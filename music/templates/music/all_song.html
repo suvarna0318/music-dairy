@@ -1,0 +1,35 @@
+
+{% extends 'music/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class=" " >
+    
+<div class="row m-3 " style="overflow-y:scroll;">
+    {% for song in songs %}
+    <a href="{% url 'song_list_with_id' song.id %}">
+    <div class="col-12">
+        <div class="card-1 ml-2" >
+            <img class="card-img-top" src="{{song.cover_img.url}}" alt="Card image cap">
+            <!-- <div class="playpause-track-card" style="float:right;margin-top:9px;"><i class="fa fa-play "></i></div> -->
+            <div class="card-body">
+                <h5 class="card-title">{{song.title}}</h5>
+    
+            </div>
+        </div>
+    </div>
+
+    </a>
+    {% cycle "" "" "" ""  %}<br>
+
+    {% endfor %}
+    
+
+    
+</div>
+
+
+</div>
+{% endblock %}
+{% include 'music/bottombar.html' %}

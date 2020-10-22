@@ -1,0 +1,328 @@
+
+  
+<div class="cards-group ml-5">
+  <h3>For Your Listening Pleasure!</h3>
+  <div class="row ">
+    {% for song in songs %}
+    <!-- <a href="{% url 'detail' song.id %}"> -->
+    <div class="col-1.6">
+      <div class="card-1" >
+        <img class="card-img-top" src="{% static 'music_collection/arjit.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{song.title}}</h5>
+          <p class="card-text">Some  card's content.</p>
+    
+        </div>
+      </div>
+    </div>
+    <!-- </a> -->
+      {% cycle "" "" ""  %}<br>
+
+    {% endfor %}
+    
+    
+  </div><hr>
+</div>
+---------------------
+bottom
+
+<div class="bottom-bar">
+  
+    <div class="details">
+     <!-- <p>{{song.song.url}}</p> -->
+      <img src="{{song_detail.cover_img.url}}">
+         <!--  <p>{{song.id}}{{song.song.url}}</p> -->
+          <audio src="{{song_detail.song.url}}" type="audio/mpeg"></audio>
+          <!-- <div class="now-playing">playing 1 of 10</div> -->
+          <!-- <div class="track-art">Do peg marke</div> -->
+          <div class="track-details">
+            <div class="track-name">{{song_detail.title}} </div>
+            <div class="track-artist">Neha Kakkar Kakkar Kakkar</div>
+          </div>
+          
+          <div class="library-btn"><i class="fa fa-heart-o fa-1x"></i></div>
+
+    </div>
+ 
+    <div class="center-btn">
+    <div class="buttons">
+          <div class="prev-track"><i class="fa fa-step-backward "></i></div>
+          <div class="playpause-track"><i class="fa fa-play "></i></div>
+          <div class="next-track"><i class="fa fa-step-forward "></i></div>
+    </div>
+    <div class="slide-container">
+          <div class="current-time">00:00</div>
+          <input type="range" min="1" max="100" value="0" class="seek-slider" 
+           onchange="seekTo()">
+          <div class="total-duration">00:00</div>
+    </div>
+
+    </div>
+    <div class="right-btn">
+    <div class="slide-container-vol">
+          <i class="fa fa-volume-down"></i> 
+          <input type="range" min="1" max="100"  class="volumeSlider" value="99"
+           onchange="VolumeChange()">
+          <i class="fa fa-volume-up"></i> 
+        </div>
+    </div>
+  </div>
+
+
+  .music-playlist{
+    margin: 0 5%;
+  }
+.music-container{
+  color: rgba(255,255,255,0.55);
+  display: block;
+  font-family: sans-serif;
+  width: 100%;
+
+  background: linear-gradient(180deg,orange,red);
+
+}
+.music-container .music-header form{
+  width: 100%;
+  display: flex;
+  border: none;
+  /*margin:20px 10px 0px 10px;*/
+
+  
+  cursor: pointer;
+}
+.music-container .music-header form input{
+  width: 80%;
+  margin-left: 4%;
+  margin-right: 10%;
+}
+/*.music-header,.fa-angle-left{
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 40px;
+}*/
+.music-header{
+
+  /*background: rgba(0,0,0,0.89);*/
+ 
+  font-size: 25px;
+}
+.music-header,.title{
+  width: 100%;
+  margin-left: 20px;
+}
+.music-playlist{
+  width: 100%;
+  height: 90%;
+/*  margin-right: 10%;*/
+
+}
+/*.music-menu{
+  width: 100%;
+  height: 10%;
+  margin-left: -5%:;
+  /*margin: 3vh;*/
+}*/
+ul{
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+  list-style-type: none;
+  margin:0 25px; 
+  /*justify-content:space-between;*/
+
+
+}
+ul li{
+  display: inline-block;
+  margin-right: 10px;
+
+  /*margin-left: 0;*/
+
+}
+ul li:first-child{
+  margin-left: 20px;
+  
+}
+li a{
+  text-decoration: none;
+  color: white;
+
+}
+.music-playlist a{
+  margin-right: 60%;
+}
+li a:hover{
+  color: black;
+  margin-right: 1px;
+  text-decoration: none;
+  background: white;
+  border-radius: 15px;
+  padding: 5px 25px;
+
+}
+.music-box{
+  margin-left: 2%;
+  width: 100%;
+  height: 80%;
+  overflow: scroll;
+  overflow-x:hidden; 
+}
+
+/*music-box::-webkit-scrollbar-thumb{
+  width: px;
+  
+  background: green;
+}*/
+.music-box::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+.music-box::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+.music-box::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.music-box .fa-ellipsis-v{
+  font-weight: normal;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.music-info{
+  /*margin-left: 10vh;*/
+  margin-right: 0px;
+  height: 17%;
+  display: flex;
+  margin-top: 3%;
+  border-bottom: 1px solid rgba(0,0,0,0.99);
+}
+.music-img,.img{
+  flex:1;
+  margin: 2px 20px;
+}
+.music-name{
+  flex:3;
+  margin-left: 0px;
+  width:100%;
+  cursor: pointer;
+}
+.music-info,h6{
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+.music-info,.p{
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+hr{
+  margin:10px 8px;
+  width: 95%;
+  justify-content:center;
+  align-item:center;
+  background: transparent;
+
+}
+.music-box{
+  height: 80vh
+}
+.fa-ellipsis-v{
+  flex:1;
+  font-weight: normal;
+  margin-top: 18px;
+  margin-right: 4%;
+  font-size: 10px;
+}
+
+}
+-----------------
+body{
+    overflow-x:hidden;
+  }
+  .music-container{
+    margin: 0;
+    min-width: 350px;
+    display: block;
+    background: linear-gradient(180 deg,red,yellow);
+
+  }
+  
+  .music-header form{
+    background: green;
+    width: 100vh;
+  }
+  .music-header form input{
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 8vh;
+    
+  }
+  .music-playlist .music-menu .menu{
+    width: 100vh;
+
+    position: absolute;
+    top: 72px;
+    background: yellow;
+  }
+  .music-menu .menu ul {
+    height: 50px; 
+    display: flex;
+    padding: 18px 40px;
+    list-style-type: none;
+  }
+  .music-menu .menu ul li{
+
+  }
+  .music-menu .menu ul li a{
+    text-decoration: none;
+    color: White;
+    
+    margin: 0 2vh;
+  }
+  .music-box{
+    width: 100vh;
+    height: 200%;
+    background: pink;
+    position: absolute;
+    top: 8.6rem;
+
+  }
+  
+  .music-box::-webkit-scrollbar {
+  width:3vh;
+  background-color: transparent;
+  height: 100vh;
+}
+
+.music-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+    background-color: rgba(27, 30, 50, 0.3);
+}
+
+.music-box::-webkit-scrollbar-track {
+  border-radius: 10px;
+    margin:7px 0;
+    background-color: rgba(27, 30, 50, 0.15);
+}
+  .music-info{
+    margin: 4vh 6vh;
+    height: 15vh;
+    display: flex;
+  }
+  .music-info .music-img img{
+    flex:1;
+    width:20vh;
+    height:15vh;
+  }
+  .music-info .music-name{
+    margin: 2vh 5vh;
+    flex:3;
+  }
+  .music-info .fa-ellipsis-v{
+    margin:6vh 2vh;
+    font-size: 2.2rem;
+    flex:0.3;
+  }

@@ -1,0 +1,41 @@
+<div class="bottom-bar">
+  
+    <div class="details">
+     
+      <img src="{{song.cover_img.url}}">
+         <!--  <p>{{song.id}}{{song.song.url}}</p> -->
+          <audio src="{{song.song.url}}" type="audio/mpeg"></audio>
+          <!-- <div class="now-playing">playing 1 of 10</div> -->
+          <!-- <div class="track-art">Do peg marke</div> -->
+          <div class="track-details">
+            <div class="track-name">{{song.title}} </div>
+            <div class="track-artist">Neha Kakkar Kakkar Kakkar</div>
+          </div>
+          
+          <div class="library-btn"><i class="fa fa-heart-o fa-1x"></i></div>
+
+    </div>
+ 
+    <div class="center-btn">
+    <div class="buttons">
+         <a href="{% url 'prev_song' song.id %}"><div class="prev-track"><i class="fa fa-step-backward "></i></div></a>
+          <div class="playpause-track"><i class="fa fa-play "></i></div>
+          <a href="{% url 'next_song' song.id %}"><div class="next-track"><i class="fa fa-step-forward "></i></div></a>
+    </div>
+    <div class="slide-container">
+          <div class="current-time mt-2" ></div>
+          <input type="range" min="1" max="100" value="0" class="seek-slider" 
+           onchange="seekTo()">
+          <div class="total-duration"></div>
+    </div>
+
+    </div>
+    <div class="right-btn">
+    <div class="slide-container-vol">
+          <i class="fa fa-volume-down"></i> 
+          <input type="range" min="1" max="100"  class="volumeSlider" value="99"
+           onchange="VolumeChange()">
+          <i class="fa fa-volume-up"></i> 
+        </div>
+    </div>
+  </div>

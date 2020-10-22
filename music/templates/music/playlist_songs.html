@@ -1,0 +1,73 @@
+
+{% extends 'music/base.html' %}
+{% load static %}
+  {% block content %}
+    <div class="cards-group ml-5">
+  <h3>For Your Listening Pleasure!</h3>
+  <div class="row ">
+    {% for song in objects %}
+    <a href="{% url 'details' song.id %}">
+    <div class="col-1.6">
+      <div class="card-1" >
+        <img class="card-img-top" src="{{song.cover_img.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{song.title}}</h5>
+          <p class="card-text">Some  card's content.</p>
+    
+        </div>
+      </div>
+    </div>
+    </a>
+      {% cycle "" "" ""  %}<br>
+
+    {% endfor %}
+    
+    
+  </div><hr>
+</div>
+  {% endblock %}
+
+  {% block bottombar %}
+<div class="bottom-bar">
+  
+    <div class="details">
+     <!-- <p class="para">3</p> -->
+      <img src="{{song.cover_img.url }}">
+         <!--  <p>{{song.id}}{{song.song.url}}</p> -->
+          <audio src="{{song.song.url}}"  type="audio/mpeg"></audio>
+          <!-- <div class="now-playing">playing 1 of 10</div> -->
+          <!-- <div class="track-art">Do peg marke</div> -->
+          <div class="track-details">
+            <div class="track-name">{{song.title}} </div>
+            <div class="track-artist">Neha Kakkar Kakkar Kakkar</div>
+          </div>
+          
+          <div class="library-btn"><i class="fa fa-heart-o fa-1x"></i></div>
+
+    </div>
+ 
+    <div class="center-btn">
+    <div class="buttons">
+          <div class="prev-track"><i class="fa fa-step-backward "></i></div>
+          <div class="playpause-track" ><i class="fa fa-play "></i></div>
+          <div class="next-track"><i class="fa fa-step-forward "></i></div>
+    </div>
+    <div class="slide-container">
+          <div class="current-time">00:00</div>
+          <input type="range" min="1" max="100" value="0" class="seek-slider" 
+           onchange="seekTo()">
+          <div class="total-duration">00:00</div>
+    </div>
+
+    </div>
+    <div class="right-btn">
+    <div class="slide-container-vol">
+          <i class="fa fa-volume-down"></i> 
+          <input type="range" min="1" max="100"  class="volumeSlider" value="99"
+           onchange="VolumeChange()">
+          <i class="fa fa-volume-up"></i> 
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

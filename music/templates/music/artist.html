@@ -1,0 +1,28 @@
+
+{% load static %}
+{% for artist in artists %}
+<div class="artist-group">
+  <div class="artit">
+    <div class="artist-img">
+      <img src="{% static 'music_collection/i1.jpg' %}" style="border-radius:50%;">
+    </div>
+    <h6 class="artist-name">{{artist.name}}</h6>
+  </div>
+
+ <!--  <div class="artit">
+    <div class="artist-img">
+      <img src="{% static 'music_collection/i1.jpg' %}">
+    </div>
+    <h6 class="artist-name">Neha Kakkar</h6>
+  </div>
+
+  <div class="artit">
+    <div class="artist-img">
+      <img src="{% static 'music_collection/i1.jpg' %}">
+    </div>
+    <h6 class="artist-name">Neha Kakkar</h6>
+  </div>
+ -->
+</div>
+{% endfor %}
+
