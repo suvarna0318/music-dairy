@@ -25,7 +25,7 @@ SECRET_KEY = 'lp40s!z@12a*sw%cszc-eomg)v*oe4)i6&d##z84nudwcaltg*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['boiling-mountain-83872.herokuapp.com']
 
 
 # Application definition
