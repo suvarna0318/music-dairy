@@ -30,7 +30,7 @@ def song_list(request):
 	all_song=Song.objects.all()
 	context={
 	'songs':all_song,
-	'song':all_song[0],
+	# 'song':all_song[0],
 	}
 	return render(request,'music/all_song.html',context)
 
