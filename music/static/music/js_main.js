@@ -133,3 +133,13 @@ function scrollFunction() {
     document.getElementById("logo").style.fontSize = "35px";
   }
 }
+
+function onfun(){
+  alert("hello")
+  document.querySelector('.overit').style.display='block';
+
+  }
+  function funoff(){
+  document.querySelector('.overit').style.display='none';
+
+  }
