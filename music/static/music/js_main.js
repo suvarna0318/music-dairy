@@ -27,7 +27,7 @@ function musicPause(){
 let isPlaying=false;
 
 btnPlayPause.addEventListener('click',function(){
- 
+ alert("working")
   if(isPlaying){
     musicPause()
   }else{
