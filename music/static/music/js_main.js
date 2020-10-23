@@ -138,6 +138,8 @@ function scrollFunction() {
 
 function onfun(){
   alert("hello")
+  const v=document.querySelector('.overit').innerHTML;
+  console.log(v)
   document.querySelector('.overit').style.display='block';
 
   }
