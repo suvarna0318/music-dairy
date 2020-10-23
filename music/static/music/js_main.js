@@ -25,17 +25,16 @@ function musicPause(){
 }
 
 let isPlaying=false;
-window.onload=musicfun(){
-  alert("i am working")
-btnPlayPause.addEventListener('click',function(){
- alert("working")
+
+  btnPlayPause.addEventListener('click',function(){
+  alert("working")
   if(isPlaying){
     musicPause()
   }else{
     musicPlay()
   }
 })
-}
+
 
 
 const para=document.querySelector('.para');
