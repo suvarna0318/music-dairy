@@ -1,3 +1,7 @@
+
+
+
+{% if song %}
 <div class="bottom-bar">
   
     <div class="details">
@@ -39,3 +43,10 @@
         </div>
     </div>
   </div>
+  {% else %}
+  
+  <div class="bottom-bar" style="background:rgba(0,0,0,0.89);">
+  
+    
+  </div>
+  {% endif %}
