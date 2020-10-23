@@ -9,7 +9,7 @@ const search=document.querySelector('.form-control')
 
 const index=0;
 function musicPlay(){
-
+  console.log(btnPlayPause.innerText)
   /*audioEle.src=playList[index].id;*/
   /*name.innerText=playList[index].name;*/
 
@@ -25,7 +25,8 @@ function musicPause(){
 }
 
 let isPlaying=false;
-
+window.onload=musicfun(){
+  alert("i am working")
 btnPlayPause.addEventListener('click',function(){
  alert("working")
   if(isPlaying){
@@ -34,6 +35,7 @@ btnPlayPause.addEventListener('click',function(){
     musicPlay()
   }
 })
+}
 
 
 const para=document.querySelector('.para');
